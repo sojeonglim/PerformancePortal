@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(60, 56%, 94%);
+  --foreground: hsl(24, 45%, 15%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(24, 45%, 15%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(24, 45%, 15%);
+  --border: hsl(35, 30%, 85%);
+  --input: hsl(35, 30%, 85%);
+  --primary: hsl(28, 45%, 40%);
+  --primary-foreground: hsl(60, 56%, 94%);
+  --secondary: hsl(35, 30%, 85%);
+  --secondary-foreground: hsl(24, 45%, 15%);
+  --accent: hsl(35, 30%, 85%);
+  --accent-foreground: hsl(24, 45%, 15%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(24, 45%, 15%);
+  --radius: 0.5rem;
+  
+  /* Friends theme colors */
+  --friends-brown: hsl(25, 60%, 27%);
+  --friends-tan: hsl(35, 44%, 69%);
+  --friends-peru: hsl(28, 45%, 56%);
+  --friends-beige: hsl(60, 56%, 94%);
+  --friends-dark: hsl(24, 45%, 15%);
+  --friends-green: hsl(120, 60%, 34%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(28, 45%, 40%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .friends-brown {
+    color: var(--friends-brown);
+  }
+  
+  .bg-friends-brown {
+    background-color: var(--friends-brown);
+  }
+  
+  .friends-tan {
+    color: var(--friends-tan);
+  }
+  
+  .bg-friends-tan {
+    background-color: var(--friends-tan);
+  }
+  
+  .friends-peru {
+    color: var(--friends-peru);
+  }
+  
+  .bg-friends-peru {
+    background-color: var(--friends-peru);
+  }
+  
+  .friends-beige {
+    color: var(--friends-beige);
+  }
+  
+  .bg-friends-beige {
+    background-color: var(--friends-beige);
+  }
+  
+  .friends-dark {
+    color: var(--friends-dark);
+  }
+  
+  .bg-friends-dark {
+    background-color: var(--friends-dark);
+  }
+  
+  .gradient-overlay {
+    background: linear-gradient(135deg, rgba(101, 67, 33, 0.9), rgba(139, 98, 57, 0.8));
+  }
+  
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+  
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .quote-fade {
+    animation: fadeInOut 4s ease-in-out infinite;
+  }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+}
