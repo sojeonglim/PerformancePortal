@@ -107,7 +107,13 @@ The application uses three main tables:
 
 ```
 Changelog:
-- June 17, 2025. Initial setup
+- June 27, 2025: Converted to pure static website
+  - Removed all backend dependencies (Express, database, API routes)
+  - Moved cast data to static files in client/src/data/
+  - Updated contact form to use Formspree external service
+  - All images now stored locally for easy replacement
+  - Updated build process for static deployment
+- June 17, 2025: Initial setup
 ```
 
 ## User Preferences

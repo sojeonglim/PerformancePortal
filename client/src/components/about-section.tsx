@@ -1,3 +1,5 @@
+import { images } from "@/data/images";
+
 export default function AboutSection() {
   return (
     <section id="about" className="py-20 bg-white">
@@ -5,7 +7,7 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <img 
-              src="https://images.unsplash.com/photo-1529258283598-8d6fe60b27f4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+              src={images.aboutGroup} 
               alt="Friends Live Cast Group Photo" 
               className="rounded-xl shadow-lg w-full h-auto" 
             />

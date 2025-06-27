@@ -1,23 +1,30 @@
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { insertContactMessageSchema } from "@shared/schema";
-import type { InsertContactMessage } from "@shared/schema";
+import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { Send, Instagram, Facebook, Twitter, Mail, Phone, MapPin, ExternalLink } from "lucide-react";
+
+// Contact form schema for static site
+const contactFormSchema = z.object({
+  name: z.string().min(1, "Name is required"),
+  email: z.string().email("Please enter a valid email"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function ContactSection() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const form = useForm<InsertContactMessage>({
-    resolver: zodResolver(insertContactMessageSchema),
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
     defaultValues: {
       name: "",
       email: "",
@@ -25,28 +32,37 @@ export default function ContactSection() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContactMessage) => {
-      return apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for your message. We'll get back to you soon.",
+  const onSubmit = async (data: ContactFormData) => {
+    setIsSubmitting(true);
+    
+    try {
+      // Using Formspree for form handling - replace with your Formspree endpoint
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
       });
-      form.reset();
-    },
-    onError: () => {
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. We'll get back to you soon.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
       toast({
         title: "Error sending message",
-        description: "Please try again later.",
+        description: "Please try again later or contact us directly via email.",
         variant: "destructive",
       });
-    },
-  });
-
-  const onSubmit = (data: InsertContactMessage) => {
-    contactMutation.mutate(data);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,11 +136,11 @@ export default function ContactSection() {
                   />
                   <Button 
                     type="submit" 
-                    disabled={contactMutation.isPending}
+                    disabled={isSubmitting}
                     className="w-full bg-friends-brown text-white hover:bg-friends-peru"
                   >
                     <Send className="mr-2 h-4 w-4" />
-                    {contactMutation.isPending ? "Sending..." : "Send Message"}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Form>

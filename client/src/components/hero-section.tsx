@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock, MapPin, Ticket, Play, ChevronDown } from "lucide-react";
+import { images } from "@/data/images";
 
 export default function HeroSection() {
   return (
@@ -8,7 +9,7 @@ export default function HeroSection() {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&h=1080')`
+          backgroundImage: `url('${images.hero}')`
         }}
       />
       <div className="absolute inset-0 gradient-overlay" />

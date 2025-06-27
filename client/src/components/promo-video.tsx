@@ -1,5 +1,6 @@
 import { Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { images } from "@/data/images";
 
 export default function PromoVideo() {
   return (
@@ -15,7 +16,7 @@ export default function PromoVideo() {
         <div className="max-w-4xl mx-auto">
           <div className="relative bg-friends-brown rounded-xl overflow-hidden shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=675" 
+              src={images.promoVideo} 
               alt="Friends Live Performance Preview" 
               className="w-full h-auto" 
             />
