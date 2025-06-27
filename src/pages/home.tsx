@@ -6,6 +6,7 @@ import CastSection from "@/components/cast-section";
 import QuoteGenerator from "@/components/quote-generator";
 import ShowDetails from "@/components/show-details";
 import PromoVideo from "@/components/promo-video";
+import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
       <QuoteGenerator />
       <ShowDetails />
       <PromoVideo />
-
+      <ContactSection />
       <Footer />
     </div>
   );
