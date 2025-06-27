@@ -54,12 +54,7 @@ export default function Navigation() {
             >
               Show Details
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="friends-dark hover:friends-peru transition-colors duration-300"
-            >
-              Contact
-            </button>
+
             <Button className="bg-friends-brown text-white hover:bg-friends-peru">
               <Ticket className="mr-2 h-4 w-4" />
               Get Tickets
@@ -106,12 +101,7 @@ export default function Navigation() {
             >
               Show Details
             </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="block px-3 py-2 friends-dark hover:bg-friends-beige rounded-md transition-colors duration-300 w-full text-left"
-            >
-              Contact
-            </button>
+
             <Button className="w-full mt-2 bg-friends-brown text-white hover:bg-friends-peru">
               <Ticket className="mr-2 h-4 w-4" />
               Get Tickets

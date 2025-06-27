@@ -2,31 +2,23 @@
 
 ## Overview
 
-This is a full-stack web application for promoting a live stage adaptation of the TV series "Friends" by Yoon's English Acting Club. The application features a modern, responsive design with a warm, Friends-themed color scheme and provides information about the show, cast, and ticket purchasing.
+This is a static website for promoting a live stage adaptation of the TV series "Friends" by Yoon's English Acting Club. The application features a modern, responsive design with a warm, Friends-themed color scheme and provides information about the show, cast, and ticket purchasing. All images are stored locally for easy replacement without any backend dependencies.
 
 ## System Architecture
 
-### Frontend Architecture
+### Static Site Architecture
 - **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for fast development and optimized production builds
-- **Routing**: Wouter for lightweight client-side routing
+- **Build Tool**: Vite for fast development and optimized static builds
+- **Routing**: Wouter for lightweight client-side routing (single page app)
 - **Styling**: Tailwind CSS with custom Friends-themed colors and variables
 - **UI Components**: Shadcn/ui component library with Radix UI primitives
-- **State Management**: TanStack Query (React Query) for server state management
-- **Forms**: React Hook Form with Zod validation
-
-### Backend Architecture
-- **Runtime**: Node.js with Express.js server
-- **Language**: TypeScript with ES modules
-- **API Pattern**: RESTful API endpoints
-- **Database ORM**: Drizzle ORM with PostgreSQL dialect
-- **Database Provider**: Neon Database (serverless PostgreSQL)
-- **Validation**: Zod schemas for type-safe data validation
+- **Data Management**: Static TypeScript data files for cast and content
+- **Icons**: Lucide React for UI icons
 
 ### Development Environment
-- **Platform**: Replit with Node.js 20, Web, and PostgreSQL 16 modules
+- **Platform**: Replit with Node.js 20 for development
 - **Hot Reload**: Vite dev server with HMR
-- **Build Process**: Vite for frontend, esbuild for backend bundling
+- **Build Process**: Vite builds to static HTML/CSS/JS for deployment
 
 ## Key Components
 

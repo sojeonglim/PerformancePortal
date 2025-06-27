@@ -1,80 +1,122 @@
 # Friends Live - Static Website
 
-This is now a pure static website for the Friends Live theater performance. All backend dependencies have been removed.
+A modern, responsive website promoting a live theater performance of the TV series "Friends" by Yoon's English Acting Club.
 
-## Image Management
+## Features
 
-To replace any images in the website:
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Friends Theme**: Warm color scheme (brown, tan, beige) matching the TV show
+- **Interactive Components**: 
+  - Countdown timer to show date
+  - Cast member showcase with quotes
+  - Quote generator with Friends quotes
+  - Smooth scrolling navigation
+- **Easy Image Management**: All images stored locally for simple replacement
 
-### Cast Member Photos
-Replace these files in `client/public/images/cast/`:
-- `rachel.jpg` - Rachel Green character photo
-- `monica.jpg` - Monica Geller character photo  
-- `phoebe.jpg` - Phoebe Buffay character photo
-- `ross.jpg` - Ross Geller character photo
-- `chandler.jpg` - Chandler Bing character photo
-- `joey.jpg` - Joey Tribbiani character photo
+## Project Structure
 
-### Background Images
-Replace these files in `client/public/images/backgrounds/`:
-- `hero-background.jpg` - Main hero section background
-- `about-group.jpg` - Group photo in about section
-- `venue.jpg` - Theater venue photo
-- `promo-video.jpg` - Video thumbnail image
+```
+├── src/
+│   ├── components/        # React components
+│   │   ├── ui/           # Shadcn/ui components
+│   │   ├── navigation.tsx
+│   │   ├── hero-section.tsx
+│   │   ├── cast-section.tsx
+│   │   └── ...
+│   ├── data/             # Static data files
+│   │   ├── cast.ts       # Cast member information
+│   │   ├── quotes.ts     # Friends quotes
+│   │   └── images.ts     # Image paths
+│   ├── pages/            # Page components
+│   └── lib/              # Utilities
+├── public/               # Static assets
+│   └── images/          # All images organized by type
+└── dist/                # Built site (after npm run build)
+```
 
-## Content Management
+## Getting Started
 
-### Cast Information
-Edit `client/src/data/cast.ts` to update:
+### Development
+```bash
+npm install
+npm run dev
+```
+
+### Building for Production
+```bash
+npm run build
+```
+
+### Preview Production Build
+```bash
+npm run preview
+```
+
+## Customization
+
+### Replacing Images
+1. Navigate to `public/images/`
+2. Replace image files with same filenames
+3. Or update paths in `src/data/images.ts`
+
+### Updating Cast Information
+Edit `src/data/cast.ts` to modify:
 - Character names
-- Actor names  
-- Character quotes
+- Actor names 
+- Quotes
 - Image paths
 
-### Contact Form
-The contact form uses Formspree. To activate:
-1. Sign up at https://formspree.io
-2. Create a new form
-3. Replace `YOUR_FORM_ID` in `client/src/components/contact-section.tsx` with your actual form ID
+### Changing Show Details
+Update information in:
+- `src/components/hero-section.tsx` - Main banner
+- `src/components/show-details.tsx` - Event details
+- `src/components/countdown-timer.tsx` - Show date
 
-## Development
-
-```bash
-# Install dependencies
-npm install
-
-# Start development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Preview production build
-npm run preview
+### Theme Colors
+Modify CSS variables in `src/index.css`:
+```css
+:root {
+  --friends-brown: #8B4513;
+  --friends-tan: #D2B48C;
+  --friends-beige: #F5F5DC;
+}
 ```
 
 ## Deployment
 
-This static site can be deployed to:
-- Netlify
-- Vercel
-- GitHub Pages
-- Cloudflare Pages
-- Any static hosting provider
+This static site can be deployed to any static hosting provider:
 
-Simply upload the `dist` folder after running `npm run build`.
+### Netlify
+1. Build: `npm run build`
+2. Deploy: Upload `dist` folder
 
-## File Structure
+### Vercel
+1. Connect GitHub repository
+2. Build command: `npm run build`
+3. Output directory: `dist`
 
-```
-client/
-├── public/
-│   └── images/
-│       ├── cast/          # Cast member photos
-│       └── backgrounds/   # Background images
-├── src/
-│   ├── components/        # React components
-│   ├── data/              # Static data files
-│   └── pages/             # Page components
-└── index.html
-```
+### GitHub Pages
+1. Enable GitHub Pages
+2. Use GitHub Actions to build and deploy
+
+### Cloudflare Pages
+1. Connect repository
+2. Build command: `npm run build`
+3. Build output: `dist`
+
+## Tech Stack
+
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Shadcn/ui** for UI components
+- **Wouter** for routing
+- **Lucide React** for icons
+
+## Browser Support
+
+Modern browsers supporting ES2018+:
+- Chrome 70+
+- Firefox 65+
+- Safari 12+
+- Edge 79+
